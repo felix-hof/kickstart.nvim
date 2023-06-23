@@ -490,6 +490,7 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require 'lspkind'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
@@ -498,6 +499,25 @@ cmp.setup {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
+  },
+  formatting = {
+    fields = { 'abbr', 'kind', 'menu' },
+    format = lspkind.cmp_format({
+      mode = 'symbol',
+      maxwidth = 50,
+      ellipsis_char = '...',
+      before = function(entry, item)
+        local menu_icon = {
+          nvim_lsp = '',
+          vsnip = '',
+          path = '',
+          cmp_zotcite = 'z',
+          cmp_nvim_r = 'R'
+        }
+        item.menu = menu_icon[entry.source.name]
+        return item
+      end,
+    })
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
