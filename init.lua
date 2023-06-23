@@ -213,8 +213,14 @@ require('lazy').setup({
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Highlight current line number
+vim.opt.cursorline = true
+
 -- Make line numbers default
 vim.wo.number = true
+
+-- Number of screen lines to keep above and below cursor
+vim.o.scrolloff = 8
 
 -- Enable mouse mode
 vim.o.mouse = ''
@@ -226,6 +232,15 @@ vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
+
+-- When indenting, convert tab to spaces
+vim.o.expandtab = true
+
+-- Use C indentation rules
+vim.o.cindent = true
+
+-- Suppress the '--- INSERT ---' in insert mode
+vim.o.showmode = false
 
 -- Save undo history
 vim.o.undofile = true
@@ -520,4 +535,4 @@ cmp.setup {
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=4 sts=-1 sw=0 et
+-- vim: ts=4 sts=-1 sw=0 tw=80 et
