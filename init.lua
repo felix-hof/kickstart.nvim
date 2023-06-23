@@ -38,7 +38,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
+vim.g.mapleader = ','
 vim.g.maplocalleader = ' '
 
 -- Install package manager
@@ -144,7 +144,7 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
         component_separators = '|',
         section_separators = '',
@@ -216,7 +216,7 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = ''
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -306,7 +306,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'bash', 'bibtex', 'c', 'cpp', 'css', 'vimdoc', 'html', 'json', 'julia', 'lua', 'latex', 'make', 'markdown', 'markdown_inline', 'python', 'r', 'rnoweb', 'rust', 'scss', 'toml', 'typescript', 'vim', 'vimdoc', 'yaml' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -425,18 +425,25 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-
+  bashls = {},
+  clangd = {},
+  cssls = {},
+  html = {},
   lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
+      Lua = {
+          workspace = { checkThirdParty = false },
+          telemetry = { enable = false },
+      },
   },
+  marksman = {},
+  pyright = {},
+  r_language_server = {},
+  rust_analyzer = {},
+  sqlls = {},
+  taplo = {},
+  texlab = {},
+  tsserver = {},
+  yamlls = {},
 }
 
 -- Setup neovim lua configuration
@@ -512,4 +519,4 @@ cmp.setup {
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=4 sts=-1 sw=0 et
