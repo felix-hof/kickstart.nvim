@@ -138,6 +138,21 @@ vim.opt.updatetime = 250
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
 
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
+
+-- Autoindentation
+-- vim.opt.smartindent = true
+
+-- Tabstop is 4 spaces wide
+vim.opt.tabstop = 4
+
+-- Spaces per indentation level
+vim.opt.shiftwidth = 4
+
+-- Turn off the fucking bell
+vim.opt.belloff = 'all'
+
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
