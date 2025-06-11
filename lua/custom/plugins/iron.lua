@@ -17,7 +17,7 @@ return {
             command = { 'bash' },
           },
           python = {
-            command = { 'ipython', '--no-autoindent' }, -- or { 'python3' }
+            command = { 'python3' }, -- or { 'ipython', '--no-autoindent' },
             format = require('iron.fts.common').bracketed_paste_python,
           },
         },
