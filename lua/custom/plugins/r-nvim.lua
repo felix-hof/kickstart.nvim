@@ -9,10 +9,12 @@ return {
           -- This function will be called at the FileType event
           -- of files supported by R.nvim. This is an
           -- opportunity to create mappings local to buffers.
-          vim.api.nvim_buf_set_keymap(0, 'n', '<Enter>', '<Plug>RDSendLine', {})
-          vim.api.nvim_buf_set_keymap(0, 'v', '<Enter>', '<Plug>RSendSelection', {})
+          vim.api.nvim_buf_set_keymap(0, 'n', '<LocalLeader>d', '<Plug>RDSendLine', {})
+          vim.api.nvim_buf_set_keymap(0, 'v', '<LocalLeader>ss', '<Plug>RSendSelection', {})
         end,
       },
+      pdfviewer = 'evince',
+      synctex = false,
       min_editor_width = 72,
       rconsole_width = 78,
       disable_cmds = {
