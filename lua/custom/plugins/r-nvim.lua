@@ -1,9 +1,13 @@
 return {
   'R-nvim/R.nvim',
+  -- enabled = false,
+  lazy = false,
+  -- submodules = true,
+  -- version = '~0.1.0',
   config = function()
     -- Create a table with the options to be passed to setup()
+    ---@type RConfigUserOpts
     local opts = {
-      R_args = { '--quiet', '--no-save' },
       hook = {
         on_filetype = function()
           -- This function will be called at the FileType event
@@ -13,10 +17,15 @@ return {
           vim.api.nvim_buf_set_keymap(0, 'v', '<LocalLeader>ss', '<Plug>RSendSelection', {})
         end,
       },
+      R_args = { '--quiet', '--no-save' },
+      -- Rout_more_colors = false,
+      -- Rout_follow_colorscheme = false,
+      pdfviewer = 'evince',
+      synctex = false,
       pdfviewer = 'evince',
       synctex = false,
       min_editor_width = 72,
-      rconsole_width = 78,
+      rconsole_width = 80,
       disable_cmds = {
         'RClearConsole',
         'RCustomStart',
@@ -35,6 +44,4 @@ return {
     end
     require('r').setup(opts)
   end,
-  lazy = false,
-  submodules = false,
 }
