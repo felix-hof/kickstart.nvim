@@ -22,8 +22,6 @@ return {
       -- Rout_follow_colorscheme = false,
       pdfviewer = 'evince',
       synctex = false,
-      pdfviewer = 'evince',
-      synctex = false,
       min_editor_width = 72,
       rconsole_width = 80,
       disable_cmds = {
