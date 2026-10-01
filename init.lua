@@ -688,7 +688,8 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         -- gopls = {},
-        pyright = {},
+        -- pyright = {},
+        ty = {},
         -- rust_analyzer = {},
         r_language_server = {},
         texlab = {},
@@ -733,9 +734,10 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'isort', -- python formatter
-        'black', -- python formatter
-        'pylint', -- python linter
+        'ruff', -- python formatter, liner, import-sorter
+        -- 'isort', -- python formatter
+        -- 'black', -- python formatter
+        -- 'pylint', -- python linter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
