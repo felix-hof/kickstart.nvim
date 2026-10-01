@@ -978,7 +978,7 @@ require('lazy').setup({
         'diff',
         'html',
         'julia',
-        'latex',
+        -- 'latex',
         'lua',
         'luadoc',
         'markdown',
